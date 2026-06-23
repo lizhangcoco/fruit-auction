@@ -1,0 +1,15 @@
+{
+  "name": "pujiang-fruit-backend-memory",
+  "version": "1.0.0",
+  "description": "成都万果数字交易平台后端服务（内存存储版）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5"
+  }
+}
