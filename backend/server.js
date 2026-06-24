@@ -308,7 +308,7 @@ app.get('/api/fruits/:id', (req, res) => {
 
 app.post('/api/fruits', auth, (req, res) => {
   if (req.user.role !== 'seller') return res.status(403).json({ message: '仅卖家可发布商品' });
-  const { name, category, price, unit, origin, quality, description, stock } = req.body;
+  const { name, category, price, unit, origin, quality, description, stock, image } = req.body;
   if (!name || !price) return res.status(400).json({ message: '商品名和价格必填' });
   
   // 根据商品名/分类自动分配 emoji 和背景色
@@ -334,6 +334,7 @@ app.post('/api/fruits', auth, (req, res) => {
     status: isStrict ? 'pending' : 'approved', // 严选待审核，优选/普通直接上架
     emoji: autoEmoji,
     bgColor: autoBg,
+    image: image || '',
     createdAt: new Date().toISOString()
   };
   fruits.push(newFruit);
